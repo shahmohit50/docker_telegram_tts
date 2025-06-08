@@ -1,0 +1,22 @@
+{
+  "name": "telegram-tts-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for text-to-speech conversion",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "axios": "^1.6.2",
+    "@mozilla/readability": "^0.4.4",
+    "jsdom": "^23.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
