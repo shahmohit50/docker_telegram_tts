@@ -1,5 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require("axios");
+const express = require('express');
 // const gTTS = require('gtts');
 const { Readability } = require('@mozilla/readability');
 const fs = require('fs');
@@ -17,8 +18,23 @@ if (!token) {
   process.exit(1);
 }
 
+// Create Express app
+const app = express();
+app.use(express.json());
+
 // Create a bot that uses polling to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
+
+// Health check endpoint
+app.get('/', (req, res) => {
+  res.send('Bot is running!');
+});
+
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
 // Listen for any message
 bot.on('message', async (msg) => {
